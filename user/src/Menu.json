@@ -1,0 +1,38 @@
+{
+    
+       "Menu" :[ {
+            "menu_id":"1",
+            "menu_name":"kolhapuri veg ",
+            "menu_prise":"120"
+        },
+        {
+            "menu_id":"2",
+            "menu_name":"kolhapuri nonveg ",
+            "menu_prise":"180"
+        },
+        {
+            "menu_id":"3",
+            "menu_name":"kolhapuri masala ",
+            "menu_prise":"150"
+        },
+        {
+            "menu_id":"4",
+            "menu_name":"kolhapuri chicken_thali",
+            "menu_prise":"220"
+        }, 
+        {
+            "menu_id":"5",
+            "menu_name":"kolhapuri mix-veg thali",
+            "menu_prise":"160"
+        }
+        ,
+        {
+            "menu_id":"6",
+            "menu_name":"panir thali ",
+            "menu_prise":"130"
+        }
+
+
+        ]
+    
+}
