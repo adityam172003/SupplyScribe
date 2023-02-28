@@ -2,33 +2,40 @@
     
        "Menu" :[ {
             "menu_id":"1",
-            "menu_name":"kolhapuri veg ",
+            "menu_name":"Pencil ",
+            "menu_stock":"500",
             "menu_prise":"120"
+            
         },
         {
             "menu_id":"2",
-            "menu_name":"kolhapuri nonveg ",
+            "menu_name":"pens",
+            "menu_stock":"504",
             "menu_prise":"180"
         },
         {
             "menu_id":"3",
-            "menu_name":"kolhapuri masala ",
+            "menu_name":"notebooks",
+            "menu_stock":"500",
             "menu_prise":"150"
         },
         {
             "menu_id":"4",
-            "menu_name":"kolhapuri chicken_thali",
+            "menu_name":"Files",
+            "menu_stock":"500",
             "menu_prise":"220"
         }, 
         {
             "menu_id":"5",
-            "menu_name":"kolhapuri mix-veg thali",
+            "menu_name":"books",
+            "menu_stock":"500",
             "menu_prise":"160"
         }
         ,
         {
             "menu_id":"6",
-            "menu_name":"panir thali ",
+            "menu_name":"Leads",
+            "menu_stock":"500",
             "menu_prise":"130"
         }
 

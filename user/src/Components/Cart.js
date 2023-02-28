@@ -1,4 +1,5 @@
 import { useSelector,useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import {remToCart,addToCart,remComp} from "../Store/CartSlice/CartSlice"
 function Cart()
 {    const dispatch = useDispatch()
@@ -7,6 +8,7 @@ function Cart()
     return(
         <>
         <h1>AddToCart</h1>
+        <Link to='/abhimenu' >Menu</Link>
         {
         menues.data.map(it =>(
             <div key = {it.menu_id}>
