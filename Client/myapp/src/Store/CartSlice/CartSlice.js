@@ -1,5 +1,7 @@
 
 import {createSlice} from "@reduxjs/toolkit"
+import axios from 'axios'
+
 
 
 const initialState = {
@@ -53,7 +55,7 @@ const cartSlice  = createSlice({
           
             state.price = state.price - parseInt(action.payload.menu_prise);
             state.total_items--;
-            if(state.total_items==0){
+            if(state.total_items===0){
                 state.price=0
             }
             if(state.total_items<0)
@@ -72,7 +74,7 @@ const cartSlice  = createSlice({
             state.data.pop(obj);
             state.price = state.price -( parseInt(action.payload.menu_prise)*pr);
             state.total_items-= pr;
-            if(state.total_items==0){
+            if(state.total_items===0){
                 state.price=0
             }
             if(state.total_items<0)
@@ -81,15 +83,35 @@ const cartSlice  = createSlice({
                 state.price=0
             }
 
-        }
+        },
+
+
+     
+       
+
+
 
       
     },
 
     
 })
-
-
+export const getTodoAsync = (orderu) => async (dispatch) => {
+    try {
+        console.log("data :",orderu);
+        const price = orderu.price;
+        const data  = orderu.data;
+        const total_items = orderu.total_items;
+        const response = await axios.post('/user/order' , {price,data,total_items});
+        if(response)
+        {
+            console.log('response from backend ',response);
+        }
+    } catch (err) {
+      throw new Error(err);
+    }
+  };
+  
 
 
 export default cartSlice.reducer  

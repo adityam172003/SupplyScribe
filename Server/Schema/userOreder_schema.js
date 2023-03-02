@@ -34,6 +34,11 @@ const usrorder = new mongoose.Schema({
             type:String,
             required:true
         }
+    ,
+    total_items:{
+        type : Number,
+        required:true
+    }
 
 })
 

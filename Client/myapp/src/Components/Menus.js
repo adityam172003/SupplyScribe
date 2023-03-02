@@ -1,6 +1,6 @@
 import data from '../Menu.json'
 
-import { useSelector, useDispatch } from 'react-redux'
+import {useDispatch } from 'react-redux'
 import {addToCart} from '../Store/CartSlice/CartSlice'
 
 function Menus()

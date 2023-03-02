@@ -63,8 +63,11 @@ exports.changeAvailability = async(req,res)=>{
 
 exports.orderStatusChange = async(req,res)=>{
     const id = req.params.id;
-
-    const ordestc = await userOrders.updateOne({id},{$set:{orderStatus:"on the way"}});
+    //const id = req.body
+   console.log(id);
+  
+    const ordestc = await userOrders.updateOne({_id:id},{$set:{orderStatus:"preapered"}});
+  
     if(ordestc)
     {
         res.status(200).json({mess:"order status changed to on the way"});
