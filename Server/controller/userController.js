@@ -27,13 +27,14 @@ exports.feedback      = async(req,res)=>{
 
 exports.userOrder = async (req,res)=>{
     // const {user_id,orders,orderStatus}=req.body;
-   const {price,data,total_items} = req.body;
+   const {user_id ,data1} = req.body;
+   const {price ,orderStatus,total_items,data} =data1
    console.log(req.body);
-   console.log(price,data,total_items)
+   
 
     //validate user id first 
 
-    const ordr = await userOrders({user_id : "1002020238298",orders :{price ,data},orderStatus :"placed",total_items});
+    const ordr = await userOrders({user_id,price,orderStatus,total_items,data});
     const resp = ordr.save();
     if(resp)
     {
@@ -49,7 +50,7 @@ exports.userOrder = async (req,res)=>{
 exports.userCart = async (req,res)=>{
     const id = req.params.id ;
     console.log("usercart : ",id);
-    const obj = await userOrders.find({user_id: id});
+    const obj = await userOrders.find({user_id: id });
     console.log(obj);
     res.send(obj);
 }

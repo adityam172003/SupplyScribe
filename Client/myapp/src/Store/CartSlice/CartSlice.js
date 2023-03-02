@@ -6,6 +6,7 @@ import axios from 'axios'
 
 const initialState = {
     price :0,
+    orderStatus:'in Queue',
     total_items:0,
     data :[{
         menu:{},
@@ -85,24 +86,19 @@ const cartSlice  = createSlice({
 
         },
 
-
-     
-       
-
-
-
-      
     },
 
     
 })
-export const getTodoAsync = (orderu) => async (dispatch) => {
+
+
+
+export const getTodoAsync = (data1) => async (dispatch) => {
     try {
-        console.log("data :",orderu);
-        const price = orderu.price;
-        const data  = orderu.data;
-        const total_items = orderu.total_items;
-        const response = await axios.post('/user/order' , {price,data,total_items});
+        
+        const user_id = 1020929320;
+        const response = await axios.post('/user/order' , {user_id,data1});
+        
         if(response)
         {
             console.log('response from backend ',response);

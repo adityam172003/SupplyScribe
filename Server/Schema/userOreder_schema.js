@@ -6,39 +6,40 @@ const usrorder = new mongoose.Schema({
         type :String,
         required:true,
     },
-    orders:[
-        {
-            price:{
-                type :Number,
-                required:true
-            },
-            data:[
-                {
-                    menu:{
-                        type:Object,
-                       
-                        required:true,
-                    },
-                    qty:{
-                        type :Number,
-                        required :true
-                    }
-                }
-            ]
+    
 
-        }
+    price:{
+            type :Number,
+            required:true
+        },
         
-    ]
-    ,
-        orderStatus:{
+            orderStatus:{
             type:String,
             required:true
         }
-    ,
+        ,
     total_items:{
         type : Number,
         required:true
-    }
+      },
+       
+     data:[
+
+            {   
+                menu:{
+                    type:Object,
+                   
+                    required:true,
+                },
+                qty:{
+                    type :Number,
+                    required :true
+                }
+            }
+        ]
+
+    
+   
 
 })
 

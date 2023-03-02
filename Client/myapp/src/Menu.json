@@ -3,38 +3,38 @@
        "Menu" :[ {
             "menu_id":"1",
             "menu_name":"Pencil",
-            "menu_prise":"120",
+            "menu_prise":"10",
             "Available":"300"
         },
         {
             "menu_id":"2",
             "menu_name":"pen",
-            "menu_prise":"120",
+            "menu_prise":"10",
             "Available":"300"
         },
         {
             "menu_id":"3",
             "menu_name":"notebooks",
-            "menu_prise":"120",
+            "menu_prise":"40",
             "Available":"300"
         },
         {
             "menu_id":"4",
             "menu_name":"assignments pages",
-            "menu_prise":"120",
+            "menu_prise":"70",
             "Available":"300"
         }, 
         {
             "menu_id":"5",
-            "menu_name":"panir thali ",
-            "menu_prise":"130",
+            "menu_name":"Scales ",
+            "menu_prise":"50",
             "Available":"300"
         }
         ,
         {
             "menu_id":"6",
             "menu_name":"files",
-            "menu_prise":"130",
+            "menu_prise":"20",
             "Available":"300"
         }
 

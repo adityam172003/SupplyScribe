@@ -1,35 +1,50 @@
 import data from '../Menu.json'
 
-import {useDispatch } from 'react-redux'
-import {addToCart} from '../Store/CartSlice/CartSlice'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../Store/CartSlice/CartSlice'
 
-function Menus()
-{   const menus= data.Menu
- 
+function Menus() {
+    const menus = data.Menu
+
     const dispatch = useDispatch()
     return (
         <>
-        <h1>MENUE</h1>
+            <h1>MENUE</h1>
 
-       
-       {
+              <section id="gallery">
+            {
 
-        menus.map(it =>(
-            <div key = {it.menu_id}>
+                menus.map(it => (
+                   
+                      
+                            <div class="cart">
+                                <div class="prod_img" key={it.menu_id}>
+                                    <img src="pen.jpg" alt="pen" width="240px" height="240px"/> 
+                                </div>
+                                <div class="prod_detail">
+                                    <p class="product_name">{it.menu_name}</p>
+                                    <p class="product_price"><sup>₹</sup><sub>{it.menu_prise}</sub></p>
+                                    <p class="availability">Available</p>
+                                    <div class="options">
+                                        
+                                        <button  class="add_cart" onClick={() => {
+                                            dispatch(addToCart(it))
+                                        }}>Add to cart</button>
+                                        <button class="feedbacks"></button>
+                                    </div>
+                                </div>
+                            </div>
+                       
+                       
 
-            <h2>Menu Name  : {it.menu_name}</h2>
-            <h3>Menu Price : {it.menu_prise} </h3>
-            <button onClick={()=>{
-                dispatch(addToCart(it))
-            }}>Add to cart</button>
-            <hr></hr>
-            </div>
+                     
+                   
 
-        ))
-       }
+                ))
+            }
+     </section>
 
 
-      
         </>
     )
 }
