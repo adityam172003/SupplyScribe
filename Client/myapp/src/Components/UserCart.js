@@ -23,7 +23,8 @@ export default function UserCart() {
     useEffect(()=>{
         fetch_Data();
     },[])
-    console.log(items)
+
+    console.log( "user cart ,", items)
     let pr=0,ord=0;
     return (
 

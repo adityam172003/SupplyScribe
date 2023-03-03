@@ -16,7 +16,7 @@ function Nev() {
                         <div id="nav_opt">
                             <ul>
                                 <li><Link to={'/abhimenu'} >Menu</Link></li>
-                                <li><Link to={'/cart'}>Cart</Link></li>
+                                <li><Link to={'/Cart'}>Cart</Link></li>
                                 <li><Link to={'/usercart'}>Track order</Link></li>
                             </ul>
                         </div>
