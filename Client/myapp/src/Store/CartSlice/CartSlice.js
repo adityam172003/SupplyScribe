@@ -38,20 +38,24 @@ const cartSlice  = createSlice({
         remToCart : (state,action)=>{
 
         
-            var obj= state.data.find((data) => data.menu.menu_id === action.payload.menu_id);
-            console.log(obj)
-             
-            if(obj.qty<=1)
-            {
-                state.data.pop(obj);
-            }
-            else
-            {
-                obj.qty--;
-                if(obj.qty<=0)
+            const obj = state.data.find(({menu})=> menu.menu_id === action.payload.menu_id);
+           
+            if(obj)
+            
+            {   
+                 state.data.find(({menu})=> menu.menu_id === action.payload.menu_id).qty--;
+
+
+                if(state.data.find(({menu})=> menu.menu_id === action.payload.menu_id).qty<1)
                 {
-                     state.data.pop(obj);
+                   state.data =  state.data.filter((data) => data.menu.menu_id != action.payload.menu_id);
                 }
+
+            }
+           
+            if(state.price==0)
+            {
+                return;
             }
           
             state.price = state.price - parseInt(action.payload.menu_prise);
@@ -72,7 +76,8 @@ const cartSlice  = createSlice({
             var obj= state.data.find((data) => data.menu.menu_id === action.payload.menu_id);
             console.log(obj)
             const  pr = obj.qty
-            state.data.pop(obj);
+
+            state.data=  state.data.filter((data) => data.menu.menu_id != action.payload.menu_id);
             state.price = state.price -( parseInt(action.payload.menu_prise)*pr);
             state.total_items-= pr;
             if(state.total_items===0){
