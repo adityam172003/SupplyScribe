@@ -13,6 +13,16 @@ const userSchema=new mongoose.Schema({
     phone:{
         type:Number,
         required:true
+    },
+    rollNo:{
+
+        type:Number,
+        required:true
+    },
+    year:
+    {
+        type :String,
+        required:true
     }
 
 })
