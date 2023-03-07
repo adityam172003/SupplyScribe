@@ -2,7 +2,8 @@ const express= require("express")
 
 const userRouter= express();
 const {
-    userRegister
+    userRegister,
+    userLogin
 } = require('../controller/UserResistor');
 
 const {
@@ -15,4 +16,5 @@ userRouter.patch('/feedback:id',feedback);
 userRouter.post('/order',userOrder);
 userRouter.get('/cart/:id',userCart)
 userRouter.post('/register',userRegister);
+userRouter.post('/login',userLogin);
 module.exports = userRouter

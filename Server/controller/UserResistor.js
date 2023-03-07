@@ -4,22 +4,22 @@ const User =require('../Schema/account_schema');
 
 exports.userResister= async (req,res) =>{
 
-    const {name,phone,email,rollNo,year} = req.body;
+    const {name,phone,email,rollNo,year,password} = req.body;
     console.log(req.body);
 
-    if(!name||!phone||!email||!rollNo||!year)
+    if(!name||!phone||!email||!rollNo||!year||!password)
     {
        return res.json({message:"enter the data first "}).status(401);
     }
 
-    const obj = User.find({email,rollNo})
+    const obj = await User.find({email,rollNo})
     if(obj)
     {
        return res.json({message:"alreaddy resgistrerd"});
 
     }
 
-    const newUser = new User({name,email,phone ,rollNo,year});
+    const newUser =  await new User({name,email,phone ,rollNo,year,password});
 
     if(newUser.save())
     {
@@ -29,4 +29,29 @@ exports.userResister= async (req,res) =>{
     {
         res.json({message:"internal server error"}).status(500);
     }
+}
+
+exports.userLogin = async (res,res) =>{
+
+    const {email,rollNo,password} = req.body;
+
+    console.log(req.body);
+
+    if(!rollNo||!email||!password)
+    {
+        return res.json({message:"enter the data first "}).status(401);
+    }
+
+    const obj = await User.find({email,rollNo});
+    if(obj)
+    {
+        if(obj.password != password)
+        {
+           return res.json({err:'Incorrect password'}).status(404);
+        }
+
+        return res.json({message:"user login successfully"}).status(200);
+    }
+
+    return  res.json({message:"internal server error"}).status(500);
 }
