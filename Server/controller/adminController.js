@@ -6,23 +6,28 @@ const userOrders      = require('../Schema/userOreder_schema')
 
 
 exports.SaveUser = async (req,res)=>{
-   const {name,email,phone} = req.body
-    if(!name || !email || !phone)
+   const {name,email,phone,rollNo,year,Password} = req.body
+   if(!name||!phone||!email||!rollNo||!year||!password)
     {
-        return res.status(404).json({message : "please enter the valid data "})
+       return res.json({message:"enter the data first "}).status(401);
     }
-   
-    const data = new User({name,email,phone});
-    const resp = await data.save();
-    if(resp)
+    const obj = await User.find({email,rollNo})
+    if(obj)
     {
-        res.json({message : "this is admin user profile creator"})
+       return res.json({message:"alreaddy resgistrerd"});
+
+    }
+
+    const newUser =  await new User({name,email,phone ,rollNo,year,password});
+
+    if(newUser.save())
+    {
+        res.json({message:"user rigistered successfully"}).status(200);
     }
     else
     {
-        res.json({message : "this is admin user profile creator unable to create"})
+        res.json({message:"internal server error"}).status(500);
     }
-
 }
 
 
@@ -77,3 +82,9 @@ exports.orderStatusChange = async(req,res)=>{
        res.status(401).json({message :"value cant be updated "});
     }
 }
+
+
+// get all orders 
+// delete completed orders
+
+
