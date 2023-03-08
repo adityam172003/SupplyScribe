@@ -1,7 +1,17 @@
 const express =require("express")
 const app = express();
 
+
+
+
+const jwt=require("jsonwebtoken")
+
+const cookieparser = require('cookie-parser')
+
+const bcrypt=require("bcrypt")
+
 app.use(express.json())
+app.use(cookieparser());
 const Port = 8080
 const adminRouter = require("./routers/adminRouter");
 const userRouter  = require("./routers/userRouts");

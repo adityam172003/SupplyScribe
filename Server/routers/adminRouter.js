@@ -14,8 +14,7 @@ adminRouter.post('/itemsadd',ItemAdd)  ;
 adminRouter.patch('/availableset:id',changeAvailability);
 adminRouter.patch('/orderstatus/:id',orderStatusChange);
 
-z
+
 module.exports =adminRouter
 
 
-xxxxxxx

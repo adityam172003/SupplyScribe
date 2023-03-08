@@ -1,10 +1,15 @@
 const express= require("express")
 
+const Authentication = require('../middlewares/UserMiddleware')
+
+
 const userRouter= express();
 const {
-    userRegister,
+    userResister,
     userLogin
 } = require('../controller/UserResistor');
+
+
 
 const {
     feedback,
@@ -12,9 +17,25 @@ const {
     userCart
 } = require('../controller/userController')
 
+
+
 userRouter.patch('/feedback:id',feedback);
+
+
 userRouter.post('/order',userOrder);
+
+
 userRouter.get('/cart/:id',userCart)
-userRouter.post('/register',userRegister);
-userRouter.post('/login',userLogin);
+
+
+userRouter.post('/register',userResister);
+
+
+userRouter.post('/login',Authentication,userLogin);
+
+
+
+
+
+
 module.exports = userRouter
