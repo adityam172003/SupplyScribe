@@ -21,6 +21,9 @@ const {
 
 
 
+
+
+
 userRouter.patch('/feedback:id',Authentication,feedback);
 
 
@@ -35,7 +38,9 @@ userRouter.post('/register',userResister);
 
 userRouter.post('/login',userLogin);
 
+
 userRouter.put('/updateprofile',Authentication,userProfileUpdate)
+
 
 userRouter.get('/logout',Authentication,userLogout);
 
