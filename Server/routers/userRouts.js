@@ -6,7 +6,8 @@ const Authentication = require('../middlewares/UserMiddleware')
 const userRouter= express();
 const {
     userResister,
-    userLogin
+    userLogin,
+    userLogout
 } = require('../controller/UserResistor');
 
 
@@ -14,26 +15,29 @@ const {
 const {
     feedback,
     userOrder,
-    userCart
+    userCart,
+    userProfileUpdate
 } = require('../controller/userController')
 
 
 
-userRouter.patch('/feedback:id',feedback);
+userRouter.patch('/feedback:id',Authentication,feedback);
 
 
-userRouter.post('/order',userOrder);
+userRouter.post('/order',Authentication,userOrder);
 
 
-userRouter.get('/cart/:id',userCart)
+userRouter.get('/cart',Authentication,userCart)
 
 
 userRouter.post('/register',userResister);
 
 
-userRouter.post('/login',Authentication,userLogin);
+userRouter.post('/login',userLogin);
 
+userRouter.put('/updateprofile',Authentication,userProfileUpdate)
 
+userRouter.get('/logout',Authentication,userLogout);
 
 
 

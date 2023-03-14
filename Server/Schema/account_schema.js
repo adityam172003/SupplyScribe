@@ -57,7 +57,8 @@ userSchema.pre('save',async function(next){
 
 
 
-userSchema.methods.generateAuthToken  = async function(){
+
+ userSchema.methods.generateAuthToken  = async function(){
     try{  // this sectete key we have to keep secrete in env file 
     
            let token =jwt.sign({_id: this._id}, process.env.JWT_PASS);
@@ -69,6 +70,8 @@ userSchema.methods.generateAuthToken  = async function(){
          console.log(err);
     }
 }
+
+
 
 const User=mongoose.model('STUDENT',userSchema);
 module.exports=User;

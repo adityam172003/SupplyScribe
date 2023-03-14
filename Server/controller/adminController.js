@@ -84,6 +84,20 @@ exports.orderStatusChange = async(req,res)=>{
 }
 
 
+exports.getUser =  async(req,res) =>{
+    const {roll} = req.body 
+  
+    await User.findOne({rollNo:roll})
+    .then((user)=>{
+        res.status(200).send(user);
+    }
+    )
+    .catch(err=>{
+        res.status(404).json({message:"User Not found"})
+    })
+}
+
+
 // get all orders 
 // delete completed orders
 
