@@ -105,7 +105,7 @@ exports.allOrders = async (req,res)=>{
 }
 
 
-// get all orders 
+
 // delete completed orders
 
 

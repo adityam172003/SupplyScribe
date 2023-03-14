@@ -10,8 +10,10 @@ const Db = process.env.DB;
 mongoose.connect(Db, {
    useNewUrlParser: true,
    useUnifiedTopology: true
-}).then(()=>{
+})
+.then(()=>{
     console.log("Conection has been done successfully with mongoDB Atlas database.");
-    }).catch((err)=>{
+})
+.catch((err)=>{
     console.log("unable to connect error is :",err);
-    })
+})
