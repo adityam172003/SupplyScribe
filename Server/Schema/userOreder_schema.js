@@ -2,8 +2,8 @@ const mongoose =require('mongoose');
 
 
 const usrorder = new mongoose.Schema({
-    user_id :{
-        type :String,
+    rollNo :{
+        type :Number,
         required:true,
     },
     

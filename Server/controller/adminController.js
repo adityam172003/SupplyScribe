@@ -6,12 +6,12 @@ const userOrders      = require('../Schema/userOreder_schema')
 
 
 exports.SaveUser = async (req,res)=>{
-   const {name,email,phone,rollNo,year,Password} = req.body
+   const {name,email,phone,rollNo,year,password} = req.body
    if(!name||!phone||!email||!rollNo||!year||!password)
     {
        return res.json({message:"enter the data first "}).status(401);
     }
-    const obj = await User.find({email,rollNo})
+    const obj = await User.findOne({email,rollNo})
     if(obj)
     {
        return res.json({message:"alreaddy resgistrerd"});
@@ -95,6 +95,13 @@ exports.getUser =  async(req,res) =>{
     .catch(err=>{
         res.status(404).json({message:"User Not found"})
     })
+}
+
+
+exports.allOrders = async (req,res)=>{
+    const orders  = await userOrders.find({});
+
+    res.status(200).send(orders);
 }
 
 

@@ -41,7 +41,7 @@ exports.feedback      = async(req,res)=>{
 exports.userOrder = async (req,res)=>{
   
     const user_id=req.rootuser._id;
-    console.log(req.rootuserId)
+   
     // user validation 
     const user = await User.findOne({_id:user_id});
    
@@ -52,13 +52,13 @@ exports.userOrder = async (req,res)=>{
     
 
    const {price ,orderStatus,total_items,data} =req.body
-   //console.log(req.body);
+  const rollNo = user.rollNo;
    
 
     
     
 
-    const ordr = await userOrders({user_id,price,orderStatus,total_items,data});
+    const ordr = await userOrders({rollNo,price,orderStatus,total_items,data});
 
     const resp = ordr.save();
 

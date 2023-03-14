@@ -13,7 +13,7 @@ const jwt      = require('jsonwebtoken')
 exports.userResister= async (req,res) =>{
 
     const {name,phone,email,rollNo,year,password} = req.body;
-    console.log(req.body);
+   
 
     if(!name||!phone||!email||!rollNo||!year||!password)
     {
