@@ -1,5 +1,4 @@
-# Stationery Management System
-
+#  SupplyScribe
 
 ## Introduction
 
